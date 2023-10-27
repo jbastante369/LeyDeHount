@@ -35,7 +35,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
-                    <DataGrid x:Name="dgParties" AutoGenerateColumns="False" IsReadOnly="True" Margin="27,66,303,45" SelectionMode="Extended" SelectionUnit="FullRow">
+                    <DataGrid x:Name="dgParties" AutoGenerateColumns="False" IsReadOnly="True" Margin="31,30,299,86" SelectionMode="Extended" SelectionUnit="FullRow">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ACRONYM" Binding="{Binding acronym}" Width="*"></DataGridTextColumn>
                             <DataGridTextColumn Header="NAME" Binding="{Binding namep}" Width="*"></DataGridTextColumn>
@@ -62,7 +62,16 @@
                         <TextBlock FontFamily="Comic Sans MS">SIMULATION</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
-                <TextBlock Text="{Binding ElementName=txtMyTextboxTab, Path=Text}"/>
+                <Grid>
+                    <DataGrid x:Name="dgSimulation" AutoGenerateColumns="False" IsReadOnly="True" Margin="33,69,33,35" SelectionMode="Extended" SelectionUnit="FullRow">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Party name:" Binding="{Binding nameparty}" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Votes:" Binding="{Binding votes}" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Seats:" Binding="{Binding seats}" Width="*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="SIMULATION" Name="btnSimulation" HorizontalAlignment="Left" Margin="33,25,0,0" VerticalAlignment="Top" BorderBrush="#FF050505" Width="85" FontWeight="Bold" Height="24" Click="DeleteParties"/>
+                </Grid>
             </TabItem>
         </TabControl>
         <TextBlock HorizontalAlignment="Left" Margin="208,26,0,0" Text="MADRID ELECTIONS" VerticalAlignment="Top" Width="535" FontFamily="Comic Sans MS" FontSize="48"/>

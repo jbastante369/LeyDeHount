@@ -91,6 +91,8 @@ namespace LeyDeHount
             {
                 btnDelete.IsEnabled = false;
             }
+
+            tab3.IsEnabled = false;
         }
 
         private void SaveParty(object sender, RoutedEventArgs e)
@@ -119,9 +121,23 @@ namespace LeyDeHount
                 {
                     MessageBox.Show("El nombre del partido ya existe");
                 }
+
+                if (parties.getListParties().Count == 10) {
+                    tab3.IsEnabled = true;
+                }
             }
         }
 
-        
+        private void ExecuteSimulation(object sender, RoutedEventArgs e)
+        {
+            double[] porcent = {0.3525, 0.2475,0.1575,0.1425,0.0375, 0.0325, 0.015, 0.005,0.0025, 0.0025 };
+            int[] votesparties = new int[10];
+            int totalvotes = populationT - nullvotesT;
+
+            for (int i = 0; i < votesparties.Length; i++)
+            {
+                votesparties[i] = (int)(totalvotes * porcent[i]);
+            }
+        }
     }
 }
