@@ -130,14 +130,61 @@ namespace LeyDeHount
 
         private void ExecuteSimulation(object sender, RoutedEventArgs e)
         {
-            double[] porcent = {0.3525, 0.2475,0.1575,0.1425,0.0375, 0.0325, 0.015, 0.005,0.0025, 0.0025 };
+            List<Simulation> simulation = new List<Simulation>();
+            double[] porcent = { 0.3525, 0.2475, 0.1575, 0.1425, 0.0375, 0.0325, 0.015, 0.005, 0.0025, 0.0025 };
             int[] votesparties = new int[10];
+            int[] votesforseat = new int[10];
+            int[] divisor = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+            int[] seats = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             int totalvotes = populationT - nullvotesT;
+            int winner = 0;
+            int mayor = 0;
 
-            for (int i = 0; i < votesparties.Length; i++)
+            if (Regex.IsMatch(txtSeats.Text, @"[0-9]"))
             {
-                votesparties[i] = (int)(totalvotes * porcent[i]);
+                int numseats = int.Parse(txtSeats.Text);
+
+                for (int i = 0; i < votesparties.Length; i++)
+                {
+                    votesparties[i] = (int)(totalvotes * porcent[i]);
+                }
+
+                for (int i = 0; i <= numseats; i++)
+                {
+
+                    for (int j = 0; j < porcent.Length; j++)
+                    {
+                        votesforseat[j] = (int)(votesparties[j] / divisor[j]);
+                        if (votesforseat[j] > mayor)
+                        {
+                            mayor = votesforseat[j];
+                            winner = j;
+                        }
+
+
+                    }
+                    mayor = 0;
+                    seats[winner]++;
+                    divisor[winner]++;
+
+                }
+
+                for (int i = 0; i < votesparties.Length; i++)
+                {
+                    Simulation s = new Simulation(parties.getListParties()[i].namep, votesparties[i], seats[i]);
+                    simulation.Add(s);
+                }
+
+
+                txtBlanckVotes.Text =((int) totalvotes * 0.005).ToString();
+                dgSimulation.ItemsSource = simulation;
+                dgSimulation.Items.Refresh();
             }
+            else
+            {
+                MessageBox.Show("Falta el numero de escaños");
+            }
+            
         }
     }
 }
