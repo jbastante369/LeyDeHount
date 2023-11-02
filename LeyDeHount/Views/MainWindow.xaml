@@ -71,12 +71,13 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Content="SIMULATION" Name="btnSimulation" HorizontalAlignment="Left" Margin="33,25,0,0" VerticalAlignment="Top" BorderBrush="#FF050505" Width="85" FontWeight="Bold" Height="24" Click="ExecuteSimulation"/>
-                    <TextBox Name="txtSeats" HorizontalAlignment="Left" Margin="140,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" Height="24" BorderBrush="Black"/>
+                    <TextBox Text="37" IsReadOnly="True"  Name="txtSeats" HorizontalAlignment="Left" Margin="140,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28" Height="24" BorderBrush="Black"/>
                     <TextBlock HorizontalAlignment="Left" Margin="318,23,0,0" TextWrapping="Wrap" Text="Blanck votes: " VerticalAlignment="Top" Height="28" Width="109" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="16"/>
                     <TextBox x:Name="txtBlanckVotes" HorizontalAlignment="Left" Margin="428,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" Height="21" BorderBrush="Black" IsReadOnly="True"/>
                 </Grid>
             </TabItem>
         </TabControl>
-        <TextBlock HorizontalAlignment="Left" Margin="208,26,0,0" Text="MADRID ELECTIONS" VerticalAlignment="Top" Width="535" FontFamily="Comic Sans MS" FontSize="48"/>
+        <TextBlock HorizontalAlignment="Left" Margin="241,26,0,0" Text="MADRID ELECTIONS" VerticalAlignment="Top" Width="502" FontFamily="Comic Sans MS" FontSize="48"/>
+        <Image HorizontalAlignment="Left" Height="95" Margin="138,10,0,0" VerticalAlignment="Top" Width="89" Source="madrid.jpg"/>
     </Grid>
 </Window>

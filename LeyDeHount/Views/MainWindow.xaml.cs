@@ -166,6 +166,7 @@ namespace LeyDeHount
                     mayor = 0;
                     seats[winner]++;
                     divisor[winner]++;
+                    winner = 0;
 
                 }
 
@@ -176,7 +177,7 @@ namespace LeyDeHount
                 }
 
 
-                txtBlanckVotes.Text =((int) totalvotes * 0.005).ToString();
+                txtBlanckVotes.Text =((int) (totalvotes * 0.005)).ToString();
                 dgSimulation.ItemsSource = simulation;
                 dgSimulation.Items.Refresh();
             }
